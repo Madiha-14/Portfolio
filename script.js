@@ -1,6 +1,3 @@
-
-//new
-
 document.addEventListener("DOMContentLoaded", () => {
 
   // ── CURSOR
