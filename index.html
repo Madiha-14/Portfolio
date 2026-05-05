@@ -1,619 +1,727 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Madiha · Data Science Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css"/>
-<script src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Madiha · Data Science Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=JetBrains+Mono:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
 </head>
+
 <body>
 
-<!-- BACKGROUNDS -->
-<div class="bg-canvas">
-  <div class="bg-orb bg-orb-1"></div>
-  <div class="bg-orb bg-orb-2"></div>
-  <div class="bg-orb bg-orb-3"></div>
-</div>
-<div class="bg-grid"></div>
-<div class="bg-noise"></div>
-
-<!-- PROGRESS BAR -->
-<div id="progress-bar"></div>
-
-<!-- CURSOR -->
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
-
-<!-- BACK TO TOP -->
-<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
-<!-- ═══ NAV ═══ -->
-<nav id="main-nav">
-  <div class="nav-logo">
-    <div class="nav-logo-dot"></div>
-    M · Madiha
+  <!-- BACKGROUNDS -->
+  <div class="bg-canvas">
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
   </div>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#certificates">Certifications</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="nav-actions">
-    <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
-      <div class="theme-toggle-knob" id="themeKnob">🌙</div>
-    </button>
-    <a href="#contact" class="nav-cta">Hire Me</a>
-    <button class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
+  <div class="bg-noise"></div>
 
-<div class="page">
+  <!-- PROGRESS BAR -->
+  <div id="progress-bar"></div>
 
-<!-- ═══════════ HERO ═══════════ -->
-<section id="hero" style="padding:0 3rem;max-width:1100px;margin:0 auto">
-  <div class="particles" id="particles"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span class="hero-eyebrow-dot"></span>
-      Available for Internships &amp; Collaborations 
+  <!-- CURSOR -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- BACK TO TOP -->
+  <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <!-- ═══ NAV ═══ -->
+  <nav id="main-nav">
+    <div class="nav-logo">
+      <div class="nav-logo-dot"></div>
+      M · Madiha
     </div>
-    <div class="hero-name">
-      <div class="grad-text">Madiha</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certificates">Certifications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
+        <div class="theme-toggle-knob" id="themeKnob">🌙</div>
+      </button>
+      <a href="#contact" class="nav-cta">Hire Me</a>
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <div class="hero-role" id="typed-role">
-      Data Science Engineer<span class="typed-cursor"></span>
-    </div>
-    <p class="hero-desc">
-      "I find patterns for a living. Still searching for my keys."<br>
-      <span style="font-size:13px;opacity:.7">B.Tech CSE · Data Science · Presidency University </span>
-    </p>
-    <div class="hero-ctas">
-      <a href="#projects" class="btn btn-primary">View Projects →</a>
-      <a href="#contact" class="btn btn-outline">Get in Touch ↓</a>
-      <a href="#" class="btn btn-download" id="downloadResume" onclick="downloadResume(event)">⬇ Resume</a>
-    </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num" data-count="4">0</div>
-        <div class="stat-label">Projects Completed</div>
-      </div>
-      <div>
-        <div class="stat-num" data-count="12">0</div>
-        <div class="stat-label">Technologies</div>
-      </div>
-      <div>
-        <div class="stat-num" data-count="889">0</div>
-        <div class="stat-label">CGPA </div>
-      </div>
-      <div>
-        <div class="stat-num" data-count="6">0</div>
-        <div class="stat-label">Certifications</div>
-      </div>
-    </div>
-  </div>
-</section>
+  </nav>
 
-<div class="s-divider"></div>
+  <div class="page">
 
-<!-- ═══════════ ABOUT ═══════════ -->
-<section id="about">
-  <div class="section-tag">The Hook</div>
-  <h2 class="section-title reveal">
-    About <em style="font-family:var(--font-serif);font-style:italic;color:var(--violet-bright)">Madiha</em>
-  </h2>
-  <div class="about-grid">
-    <div class="about-avatar reveal-left">
-      <img src="images/pp.jpeg" alt="Madiha" class="avatar-img"/>
-      <div class="avatar-shimmer"></div>
-      <div class="avatar-ring" style="width:400px;height:200px;animation-duration:8s"></div>
-      <div class="avatar-ring" style="width:300px;height:280px;animation-duration:14s;animation-direction:reverse;opacity:.4"></div>
-      <div class="avatar-tag">
-        <span style="color:var(--green)">●</span>&nbsp; Open to opportunities · Bengaluru · Hyderabad
-      </div>
-    </div>
-    <div class="reveal-right">
-      <div class="about-badges">
-        <span class="badge badge-violet">B.Tech CSE</span>
-        <span class="badge badge-rose">Data Science</span>
-        <span class="badge badge-amber">3rd Year</span>
-        <span class="badge badge-green">GPA 8.89</span>
-        <span class="badge badge-cyan">Presidency University</span>
-      </div>
-      <p class="about-bio">I'm <strong>Madiha</strong> — a Computer Science student at Presidency University, Bengaluru, specializing in Data Science. I'm passionate about turning raw, messy data into intelligent, actionable insights. Whether it's building predictive models, engineering clean data pipelines, or crafting interactive dashboards — I do it all with precision and creativity.</p>
-      <p class="about-bio" style="margin-top:.75rem">Currently in my 3rd year, I've built real-world ML systems like an insider threat detection engine (NeuroHaven) and a clinical diabetes prediction model. I approach every problem with a <strong>data-first mindset</strong>, obsessing over model accuracy, visual clarity, and clean code. I'm fluent in Python's data stack, comfortable with full-stack deployment, and always hungry for harder problems.</p>
-      <p class="about-bio" style="margin-top:.75rem">Beyond academics, I explore the intersection of <strong>AI safety, anomaly detection, and behavioral analytics</strong>. I believe great data science is equal parts rigorous mathematics and compelling storytelling. I'm actively seeking internships where I can contribute to impactful, data-driven products.</p>
-      <div class="info-row">
-        <div class="info-item"><span class="info-label">University</span><span class="info-val">Presidency University, Bengaluru</span></div>
-        <div class="info-item"><span class="info-label">Degree</span><span class="info-val">B.Tech — CSE (Data Science)</span></div>
-        <div class="info-item"><span class="info-label">Year</span><span class="info-val">3rd Year (2023–2027)</span></div>
-        <div class="info-item"><span class="info-label">Location</span><span class="info-val">Bengaluru, Karnataka</span></div>
-        <div class="info-item"><span class="info-label">GPA</span><span class="info-val" style="color:var(--violet-bright);font-weight:600">8.89 / 10.0</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="s-divider"></div>
-
-<!-- ═══════════ SKILLS ═══════════ -->
-<section id="skills">
-  <div class="section-tag">Data &amp; Tech Arsenal</div>
-  <h2 class="section-title reveal">
-    Skills &amp; <em style="font-family:var(--font-serif);font-style:italic;color:var(--violet-bright)">Technologies</em>
-  </h2>
-  <div class="skills-grid reveal">
-
-    <div class="skill-card reveal-pop" style="transition-delay:.05s">
-      <div class="skill-icon">🐍</div>
-      <div class="skill-name">Python</div>
-      <div class="skill-desc">Building scalable data pipelines, performing advanced analysis, and developing ML solutions using Python as the core language.</div>
-      <div class="skill-tags">
-        <span class="stag">pandas</span><span class="stag">numpy</span>
-        <span class="stag">matplotlib</span><span class="stag">seaborn</span><span class="stag">scipy</span>
-      </div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>Proficiency</span><span>Advanced · 88%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="background:linear-gradient(90deg,var(--violet-bright),var(--cyan))" data-width="88"></div></div>
-      </div>
-    </div>
-
-    <div class="skill-card reveal-pop" style="transition-delay:.1s">
-      <div class="skill-icon">🤖</div>
-      <div class="skill-name">Machine Learning</div>
-      <div class="skill-desc">Designing predictive models and optimizing performance using supervised, unsupervised, and anomaly detection techniques — including production deployment.</div>
-      <div class="skill-tags">
-        <span class="stag">scikit-learn</span><span class="stag">TensorFlow</span>
-        <span class="stag">Isolation Forest</span><span class="stag">Model Tuning</span>
-      </div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>Proficiency</span><span>Intermediate+ · 75%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="background:linear-gradient(90deg,var(--rose),var(--violet-bright))" data-width="75"></div></div>
-      </div>
-    </div>
-
-    <div class="skill-card reveal-pop" style="transition-delay:.15s">
-      <div class="skill-icon">📊</div>
-      <div class="skill-name">Data Visualization</div>
-      <div class="skill-desc">Transforming complex datasets into intuitive dashboards and visual stories that drive better decision-making and stakeholder communication.</div>
-      <div class="skill-tags">
-        <span class="stag">Seaborn</span><span class="stag">Plotly</span>
-        <span class="stag">Tableau</span><span class="stag">Power BI</span>
-      </div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>Proficiency</span><span>Intermediate+ · 80%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="background:linear-gradient(90deg,var(--amber),var(--rose))" data-width="80"></div></div>
-      </div>
-    </div>
-
-    <div class="skill-card reveal-pop" style="transition-delay:.2s">
-      <div class="skill-icon">🗄️</div>
-      <div class="skill-name">SQL &amp; Databases</div>
-      <div class="skill-desc">Writing efficient queries, designing schemas, and managing structured data for analytics and backend systems with optimization techniques.</div>
-      <div class="skill-tags">
-        <span class="stag">MySQL</span><span class="stag">PostgreSQL</span>
-        <span class="stag">PHPadmin</span><span class="stag">Joins</span>
-      </div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>Proficiency</span><span>Intermediate · 72%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="background:linear-gradient(90deg,var(--green),var(--cyan))" data-width="72"></div></div>
-      </div>
-    </div>
-
-    <div class="skill-card reveal-pop" style="transition-delay:.25s">
-      <div class="skill-icon">🌐</div>
-      <div class="skill-name">Web Development</div>
-      <div class="skill-desc">Building responsive interfaces and deploying data-driven applications using modern frontend and backend tools. Full-stack capable from FastAPI to React.</div>
-      <div class="skill-tags">
-        <span class="stag">HTML/CSS</span><span class="stag">JavaScript</span>
-        <span class="stag">React</span><span class="stag">Flask</span><span class="stag">Streamlit</span>
-      </div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>Proficiency</span><span>Intermediate · 78%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="background:linear-gradient(90deg,var(--cyan),var(--violet-bright))" data-width="78"></div></div>
-      </div>
-    </div>
-
-    <div class="skill-card reveal-pop" style="transition-delay:.3s">
-      <div class="skill-icon">🔍</div>
-      <div class="skill-name">EDA &amp; Data Analysis</div>
-      <div class="skill-desc">Applying analytical techniques to explore datasets, uncover hidden patterns, and extract meaningful insights using statistical methods and feature engineering.</div>
-      <div class="skill-tags">
-        <span class="stag">EDA</span><span class="stag">Data Cleaning</span>
-        <span class="stag">Feature Engineering</span><span class="stag">Clustering</span>
-      </div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>Proficiency</span><span>Intermediate · 78%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="background:linear-gradient(90deg,var(--rose),var(--amber))" data-width="78"></div></div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="s-divider"></div>
-
-<!-- ═══════════ CERTIFICATES ═══════════ -->
-<section id="certificates">
-  <div class="section-tag">Achievement Tree</div>
-  <h2 class="section-title reveal">
-    My <em style="font-family:var(--font-serif);font-style:italic;color:var(--violet-bright)">Certifications</em>
-  </h2>
-  <div class="cert-grid reveal">
-
-    <div class="cert-card" data-tier="gold">
-      <div class="cert-shimmer"></div>
-      <div class="cert-inner">
-        <div class="cert-top">
-          <div class="cert-medal-wrap"><span class="cert-medal">🥇</span><div class="cert-medal-glow gold"></div></div>
-          <div class="cert-tier-badge gold">Expert</div>
+    <!-- ═══════════ HERO ═══════════ -->
+    <section id="hero" style="padding:0 3rem;max-width:1100px;margin:0 auto">
+      <div class="particles" id="particles"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>
+          Available for Internships &amp; Collaborations
         </div>
-        <div class="cert-body"><h3 class="cert-name">AI &amp; Python for ML</h3><p class="cert-issuer">AI / Python Track</p></div>
-        <div class="cert-bar gold"></div>
-      </div>
-      <div class="cert-reveal"><div class="cert-reveal-inner">
-        <span class="cert-reveal-icon">🥇</span>
-        <h4 class="cert-reveal-title">AI &amp; Python for Machine Learning</h4>
-        <p class="cert-reveal-desc">Core ML concepts, Python programming for AI, and hands-on predictive model building using real-world datasets.</p>
-        <span class="cert-reveal-badge">ML Expert</span>
-      </div></div>
-    </div>
-
-    <div class="cert-card" data-tier="gold">
-      <div class="cert-shimmer"></div>
-      <div class="cert-inner">
-        <div class="cert-top">
-          <div class="cert-medal-wrap"><span class="cert-medal">🥇</span><div class="cert-medal-glow gold"></div></div>
-          <div class="cert-tier-badge gold">Expert</div>
+        <div class="hero-name">
+          <div class="grad-text">Madiha</div>
         </div>
-        <div class="cert-body"><h3 class="cert-name">Data Visualization Pro</h3><p class="cert-issuer">SkillUp Platform</p></div>
-        <div class="cert-bar gold"></div>
-      </div>
-      <div class="cert-reveal"><div class="cert-reveal-inner">
-        <span class="cert-reveal-icon">🥇</span>
-        <h4 class="cert-reveal-title">Data Visualization Professional</h4>
-        <p class="cert-reveal-desc">Advanced data storytelling, interactive dashboard design using Plotly, Tableau &amp; Power BI.</p>
-        <span class="cert-reveal-badge">Data Viz Pro</span>
-      </div></div>
-    </div>
-
-    <div class="cert-card" data-tier="silver">
-      <div class="cert-shimmer"></div>
-      <div class="cert-inner">
-        <div class="cert-top">
-          <div class="cert-medal-wrap"><span class="cert-medal">🥈</span><div class="cert-medal-glow silver"></div></div>
-          <div class="cert-tier-badge silver">Advanced</div>
+        <div class="hero-role" id="typed-role">
+          Data Science Engineer<span class="typed-cursor"></span>
         </div>
-        <div class="cert-body"><h3 class="cert-name">Python Advanced</h3><p class="cert-issuer">Python Certification</p></div>
-        <div class="cert-bar silver"></div>
-      </div>
-      <div class="cert-reveal"><div class="cert-reveal-inner">
-        <span class="cert-reveal-icon">🥈</span>
-        <h4 class="cert-reveal-title">Advanced Python Programming</h4>
-        <p class="cert-reveal-desc">OOP, data structures, file I/O, functional programming, and scripting for data science pipelines.</p>
-        <span class="cert-reveal-badge">Python Advanced</span>
-      </div></div>
-    </div>
-
-    <div class="cert-card" data-tier="silver">
-      <div class="cert-shimmer"></div>
-      <div class="cert-inner">
-        <div class="cert-top">
-          <div class="cert-medal-wrap"><span class="cert-medal">🥈</span><div class="cert-medal-glow silver"></div></div>
-          <div class="cert-tier-badge silver">Advanced</div>
+        <p class="hero-desc">
+          "I find patterns for a living. Still searching for my keys."<br>
+          <span style="font-size:13px;opacity:.7">B.Tech CSE · Data Science · Presidency University </span>
+        </p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn btn-primary">View Projects →</a>
+          <a href="#contact" class="btn btn-outline">Get in Touch ↓</a>
+          <a href="#" class="btn btn-download" id="downloadResume" onclick="downloadResume(event)">⬇ Resume</a>
         </div>
-        <div class="cert-body"><h3 class="cert-name">Frontend with React</h3><p class="cert-issuer">React Development</p></div>
-        <div class="cert-bar silver"></div>
-      </div>
-      <div class="cert-reveal"><div class="cert-reveal-inner">
-        <span class="cert-reveal-icon">🥈</span>
-        <h4 class="cert-reveal-title">Frontend Development — React</h4>
-        <p class="cert-reveal-desc">Component-based UI development using React 18, hooks, Context API, and responsive design patterns.</p>
-        <span class="cert-reveal-badge">React Dev</span>
-      </div></div>
-    </div>
-
-    <div class="cert-card" data-tier="bronze">
-      <div class="cert-shimmer"></div>
-      <div class="cert-inner">
-        <div class="cert-top">
-          <div class="cert-medal-wrap"><span class="cert-medal">🥉</span><div class="cert-medal-glow bronze"></div></div>
-          <div class="cert-tier-badge bronze">Certified</div>
-        </div>
-        <div class="cert-body"><h3 class="cert-name">JavaScript Fundamentals</h3><p class="cert-issuer">JS Certification</p></div>
-        <div class="cert-bar bronze"></div>
-      </div>
-      <div class="cert-reveal"><div class="cert-reveal-inner">
-        <span class="cert-reveal-icon">🥉</span>
-        <h4 class="cert-reveal-title">JavaScript Fundamentals</h4>
-        <p class="cert-reveal-desc">DOM manipulation, ES6+ features, async/await, event handling, and building interactive web experiences.</p>
-        <span class="cert-reveal-badge bronze">JavaScript</span>
-      </div></div>
-    </div>
-
-    <div class="cert-card" data-tier="bronze">
-      <div class="cert-shimmer"></div>
-      <div class="cert-inner">
-        <div class="cert-top">
-          <div class="cert-medal-wrap"><span class="cert-medal">🥉</span><div class="cert-medal-glow bronze"></div></div>
-          <div class="cert-tier-badge bronze">Certified</div>
-        </div>
-        <div class="cert-body"><h3 class="cert-name">Data Viz Basics</h3><p class="cert-issuer">Coursera</p></div>
-        <div class="cert-bar bronze"></div>
-      </div>
-      <div class="cert-reveal"><div class="cert-reveal-inner">
-        <span class="cert-reveal-icon">🥉</span>
-        <h4 class="cert-reveal-title">Data Visualization Basics</h4>
-        <p class="cert-reveal-desc">Foundations of charting, data plotting, and communicating meaningful insights through effective visual representation.</p>
-        <span class="cert-reveal-badge bronze">Coursera</span>
-      </div></div>
-    </div>
-
-  </div>
-</section>
-
-<div class="s-divider"></div>
-
-<!-- ═══════════ PROJECTS ═══════════ -->
-<section id="projects">
-  <div class="section-tag">My Work</div>
-  <h2 class="section-title reveal">
-    Featured <em style="font-family:var(--font-serif);font-style:italic;color:var(--violet-bright)">Projects</em>
-  </h2>
-
-  <div class="carousel-container reveal">
-    <div class="carousel-track" id="projTrack">
-
-      <!-- SLIDE 1 -->
-      <div class="project-card">
-        <div class="project-visual" style="background:linear-gradient(135deg,#06060e 0%,#0a0a1e 80%)">
-          <div class="project-visual-inner">
-            <div class="project-label" style="color:var(--violet-bright)">PORTFOLIO</div>
-            <img src="images/portfolio.png" alt="Portfolio Screenshot" class="project-img"/>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num" data-count="4">0</div>
+            <div class="stat-label">Projects Completed</div>
           </div>
-        </div>
-        <div class="project-info">
-          <div class="project-num">01 / 04</div>
-          <div class="project-title">Personal Portfolio Website</div>
-          <p class="project-desc">Designed and developed a fully responsive portfolio to showcase projects, skills, education &amp; experience — with modern UI/UX, interactive animations, dark/light mode, and a custom cursor system.</p>
-          <div class="project-metric">
-            <span class="project-metric-dot"></span>
-            Responsive · Mobile-first · Live Deployed
+          <div>
+            <div class="stat-num" data-count="12">0</div>
+            <div class="stat-label">Technologies</div>
           </div>
-          <div class="project-tech">
-            <span class="badge badge-cyan">HTML</span>
-            <span class="badge badge-rose">CSS</span>
-            <span class="badge badge-amber">JavaScript</span>
-            <span class="badge badge-violet">React</span>
+          <div>
+            <div class="stat-num" data-count="889">0</div>
+            <div class="stat-label">CGPA </div>
           </div>
-          <div class="project-links">
-            <a href="#" class="p-link p-link-primary">Live Demo</a>
-            <a href="#" class="p-link p-link-outline">GitHub →</a>
+          <div>
+            <div class="stat-num" data-count="6">0</div>
+            <div class="stat-label">Certifications</div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- SLIDE 2 -->
-      <div class="project-card">
-        <div class="project-visual" style="background:linear-gradient(135deg,#0a0614 0%,#14091e 100%)">
-          <div class="project-visual-inner">
-            <div class="project-label" style="color:var(--rose)">ML · HEALTHCARE</div>
-            <img src="images/Diabetes-model.png" alt="Diabetes Prediction" class="project-img"/>
-          </div>
-        </div>
-        <div class="project-info">
-          <div class="project-num">02 / 04</div>
-          <div class="project-title">Diabetes Prediction Model</div>
-          <p class="project-desc">Built a machine learning model to predict diabetes risk using the Pima Indians dataset (768 records). Applied preprocessing, feature selection, and compared Logistic Regression, Random Forest &amp; SVM.</p>
-          <div class="project-metric">
-            <span class="project-metric-dot"></span>
-            87% Classification Accuracy · Live Streamlit Deploy
-          </div>
-          <div class="project-tech">
-            <span class="badge badge-cyan">Python</span>
-            <span class="badge badge-cyan">Pandas</span>
-            <span class="badge badge-rose">scikit-learn</span>
-            <span class="badge badge-amber">Flask</span>
-            <span class="badge badge-green">Streamlit</span>
-          </div>
-          <div class="project-links">
-            <a href="#" class="p-link p-link-primary">Live Demo</a>
-            <a href="#" class="p-link p-link-outline">GitHub →</a>
-          </div>
-        </div>
-      </div>
+    <div class="s-divider"></div>
 
-      <!-- SLIDE 3 -->
-      <div class="project-card">
-        <div class="project-visual" style="background:linear-gradient(135deg,#06060e 0%,#0a0a18 100%)">
-          <div class="project-visual-inner">
-            <div class="project-label" style="color:var(--cyan)">SECURITY · ML</div>
-            <img src="images/neuro.png" alt="NeuroHaven" class="project-img"/>
+    <!-- ═══════════ ABOUT ═══════════ -->
+    <section id="about">
+      <div class="section-tag">The Hook</div>
+      <h2 class="section-title reveal">
+        About <em style="font-family:var(--font-serif);font-style:italic;color:var(--violet-bright)">Madiha</em>
+      </h2>
+      <div class="about-grid">
+        <div class="about-avatar reveal-left">
+          <img src="images/pp.jpeg" alt="Madiha" class="avatar-img" />
+          <div class="avatar-shimmer"></div>
+          <div class="avatar-ring" style="width:400px;height:200px;animation-duration:8s"></div>
+          <div class="avatar-ring"
+            style="width:300px;height:280px;animation-duration:14s;animation-direction:reverse;opacity:.4"></div>
+          <div class="avatar-tag">
+            <span style="color:var(--green)">●</span>&nbsp; Open to opportunities · Bengaluru · Hyderabad
           </div>
         </div>
-        <div class="project-info">
-          <div class="project-num">03 / 04</div>
-          <div class="project-title">NeuroHaven</div>
-          <p class="project-desc">Insider threat detection system using behavioral data analysis and unsupervised anomaly detection (Isolation Forest, DBSCAN) to identify suspicious activities. Real-time React dashboard for threat visualization.</p>
-          <div class="project-metric">
-            <span class="project-metric-dot"></span>
-            Anomaly Detection · Top 5% Risk Surfacing
+        <div class="reveal-right">
+          <div class="about-badges">
+            <span class="badge badge-violet">B.Tech CSE</span>
+            <span class="badge badge-rose">Data Science</span>
+            <span class="badge badge-amber">3rd Year</span>
+            <span class="badge badge-green">GPA 8.89</span>
+            <span class="badge badge-cyan">Presidency University</span>
           </div>
-          <div class="project-tech">
-            <span class="badge badge-cyan">Python</span>
-            <span class="badge badge-rose">ML</span>
-            <span class="badge badge-amber">Data Analysis</span>
-            <span class="badge badge-violet">React</span>
-          </div>
-          <div class="project-links">
-            <a href="#" class="p-link p-link-primary">Live Demo</a>
-            <a href="#" class="p-link p-link-outline">GitHub →</a>
+          <p class="about-bio">I'm <strong>Madiha</strong> — a Computer Science student at Presidency University,
+            Bengaluru, specializing in Data Science. I'm passionate about turning raw, messy data into intelligent,
+            actionable insights. Whether it's building predictive models, engineering clean data pipelines, or crafting
+            interactive dashboards — I do it all with precision and creativity.</p>
+          <p class="about-bio" style="margin-top:.75rem">Currently in my 3rd year, I've built real-world ML systems like
+            an insider threat detection engine (NeuroHaven) and a clinical diabetes prediction model. I approach every
+            problem with a <strong>data-first mindset</strong>, obsessing over model accuracy, visual clarity, and clean
+            code. I'm fluent in Python's data stack, comfortable with full-stack deployment, and always hungry for
+            harder problems.</p>
+          <p class="about-bio" style="margin-top:.75rem">Beyond academics, I explore the intersection of <strong>AI
+              safety, anomaly detection, and behavioral analytics</strong>. I believe great data science is equal parts
+            rigorous mathematics and compelling storytelling. I'm actively seeking internships where I can contribute to
+            impactful, data-driven products.</p>
+          <div class="info-row">
+            <div class="info-item"><span class="info-label">University</span><span class="info-val">Presidency
+                University, Bengaluru</span></div>
+            <div class="info-item"><span class="info-label">Degree</span><span class="info-val">B.Tech — CSE (Data
+                Science)</span></div>
+            <div class="info-item"><span class="info-label">Year</span><span class="info-val">3rd Year
+                (2023–2027)</span></div>
+            <div class="info-item"><span class="info-label">Location</span><span class="info-val">Bengaluru,
+                Karnataka</span></div>
+            <div class="info-item"><span class="info-label">GPA</span><span class="info-val"
+                style="color:var(--violet-bright);font-weight:600">8.89 / 10.0</span></div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- SLIDE 4 — CraftFolio -->
-      <div class="project-card">
-        <div class="project-visual" style="background:linear-gradient(135deg,#080614 0%,#100a1e 100%)">
-          <div class="project-visual-inner">
-            <div class="project-label" style="color:var(--violet-bright)">CRAFTFOLIO</div>
-            <img src="images/craftfolio.png" alt="CraftFolio" class="project-img"/>
+    <div class="s-divider"></div>
+
+    <!-- ═══════════ SKILLS ═══════════ -->
+    <section id="skills">
+      <div class="section-tag">Data &amp; Tech Arsenal</div>
+      <h2 class="section-title reveal">
+        Skills &amp; <em
+          style="font-family:var(--font-serif);font-style:italic;color:var(--violet-bright)">Technologies</em>
+      </h2>
+      <div class="skills-grid reveal">
+
+        <div class="skill-card reveal-pop" style="transition-delay:.05s">
+          <div class="skill-icon">🐍</div>
+          <div class="skill-name">Python</div>
+          <div class="skill-desc">Building scalable data pipelines, performing advanced analysis, and developing ML
+            solutions using Python as the core language.</div>
+          <div class="skill-tags">
+            <span class="stag">pandas</span><span class="stag">numpy</span>
+            <span class="stag">matplotlib</span><span class="stag">seaborn</span><span class="stag">scipy</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Proficiency</span><span>Advanced · 88%</span></div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="background:linear-gradient(90deg,var(--violet-bright),var(--cyan))"
+                data-width="88"></div>
+            </div>
           </div>
         </div>
-        <div class="project-info">
-          <div class="project-num">04 / 04</div>
-          <div class="project-title">CraftFolio</div>
-          <p class="project-desc">A dynamic portfolio builder platform that empowers users to create and customize stunning portfolios without writing a single line of code. Features modern templates, real-time customization, and one-click deployment — making personal branding effortless.</p>
-          <div class="project-metric">
-            <span class="project-metric-dot"></span>
-            Multi-template · Real-time Preview · One-click Deploy
+
+        <div class="skill-card reveal-pop" style="transition-delay:.1s">
+          <div class="skill-icon">🤖</div>
+          <div class="skill-name">Machine Learning</div>
+          <div class="skill-desc">Designing predictive models and optimizing performance using supervised, unsupervised,
+            and anomaly detection techniques — including production deployment.</div>
+          <div class="skill-tags">
+            <span class="stag">scikit-learn</span><span class="stag">TensorFlow</span>
+            <span class="stag">Isolation Forest</span><span class="stag">Model Tuning</span>
           </div>
-          <div class="project-tech">
-            <span class="badge badge-cyan">FastAPI</span>
-            <span class="badge badge-rose">HTML5</span>
-            <span class="badge badge-amber">CSS3</span>
-            <span class="badge badge-green">JavaScript</span>
-            <span class="badge badge-violet">React</span>
-          </div>
-          <div class="project-links">
-            <a href="#" class="p-link p-link-primary">Live Demo</a>
-            <a href="#" class="p-link p-link-outline">GitHub →</a>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Proficiency</span><span>Intermediate+ · 75%</span></div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="background:linear-gradient(90deg,var(--rose),var(--violet-bright))"
+                data-width="75"></div>
+            </div>
           </div>
         </div>
+
+        <div class="skill-card reveal-pop" style="transition-delay:.15s">
+          <div class="skill-icon">📊</div>
+          <div class="skill-name">Data Visualization</div>
+          <div class="skill-desc">Transforming complex datasets into intuitive dashboards and visual stories that drive
+            better decision-making and stakeholder communication.</div>
+          <div class="skill-tags">
+            <span class="stag">Seaborn</span><span class="stag">Plotly</span>
+            <span class="stag">Tableau</span><span class="stag">Power BI</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Proficiency</span><span>Intermediate+ · 80%</span></div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="background:linear-gradient(90deg,var(--amber),var(--rose))"
+                data-width="80"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card reveal-pop" style="transition-delay:.2s">
+          <div class="skill-icon">🗄️</div>
+          <div class="skill-name">SQL &amp; Databases</div>
+          <div class="skill-desc">Writing efficient queries, designing schemas, and managing structured data for
+            analytics and backend systems with optimization techniques.</div>
+          <div class="skill-tags">
+            <span class="stag">MySQL</span><span class="stag">PostgreSQL</span>
+            <span class="stag">PHPadmin</span><span class="stag">Joins</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Proficiency</span><span>Intermediate · 72%</span></div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="background:linear-gradient(90deg,var(--green),var(--cyan))"
+                data-width="72"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card reveal-pop" style="transition-delay:.25s">
+          <div class="skill-icon">🌐</div>
+          <div class="skill-name">Web Development</div>
+          <div class="skill-desc">Building responsive interfaces and deploying data-driven applications using modern
+            frontend and backend tools. Full-stack capable from FastAPI to React.</div>
+          <div class="skill-tags">
+            <span class="stag">HTML/CSS</span><span class="stag">JavaScript</span>
+            <span class="stag">React</span><span class="stag">Flask</span><span class="stag">Streamlit</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Proficiency</span><span>Intermediate · 78%</span></div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="background:linear-gradient(90deg,var(--cyan),var(--violet-bright))"
+                data-width="78"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card reveal-pop" style="transition-delay:.3s">
+          <div class="skill-icon">🔍</div>
+          <div class="skill-name">EDA &amp; Data Analysis</div>
+          <div class="skill-desc">Applying analytical techniques to explore datasets, uncover hidden patterns, and
+            extract meaningful insights using statistical methods and feature engineering.</div>
+          <div class="skill-tags">
+            <span class="stag">EDA</span><span class="stag">Data Cleaning</span>
+            <span class="stag">Feature Engineering</span><span class="stag">Clustering</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Proficiency</span><span>Intermediate · 78%</span></div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="background:linear-gradient(90deg,var(--rose),var(--amber))"
+                data-width="78"></div>
+            </div>
+          </div>
+        </div>
+
       </div>
+    </section>
 
-    </div>
+    <div class="s-divider"></div>
 
-    <div class="carousel-nav">
-      <button class="c-btn" id="projPrev">&#8592;</button>
-      <div class="c-dots" id="projDots">
-        <div class="c-dot on" data-i="0"></div>
-        <div class="c-dot" data-i="1"></div>
-        <div class="c-dot" data-i="2"></div>
-        <div class="c-dot" data-i="3"></div>
+    <!-- ═══════════ CERTIFICATES ═══════════ -->
+    <section id="certificates">
+      <div class="section-tag">Achievement Tree</div>
+      <h2 class="section-title reveal">
+        My <em style="font-family:var(--font-serif);font-style:italic;color:var(--violet-bright)">Certifications</em>
+      </h2>
+      <div class="cert-grid reveal">
+
+        <div class="cert-card" data-tier="gold">
+          <div class="cert-shimmer"></div>
+          <div class="cert-inner">
+            <div class="cert-top">
+              <div class="cert-medal-wrap"><span class="cert-medal">🥇</span>
+                <div class="cert-medal-glow gold"></div>
+              </div>
+              <div class="cert-tier-badge gold">Expert</div>
+            </div>
+            <div class="cert-body">
+              <h3 class="cert-name">AI &amp; Python for ML</h3>
+              <p class="cert-issuer">AI / Python Track</p>
+            </div>
+            <div class="cert-bar gold"></div>
+          </div>
+          <div class="cert-reveal">
+            <div class="cert-reveal-inner">
+              <span class="cert-reveal-icon">🥇</span>
+              <h4 class="cert-reveal-title">AI &amp; Python for Machine Learning</h4>
+              <p class="cert-reveal-desc">Core ML concepts, Python programming for AI, and hands-on predictive model
+                building using real-world datasets.</p>
+              <span class="cert-reveal-badge">ML Expert</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-tier="gold">
+          <div class="cert-shimmer"></div>
+          <div class="cert-inner">
+            <div class="cert-top">
+              <div class="cert-medal-wrap"><span class="cert-medal">🥇</span>
+                <div class="cert-medal-glow gold"></div>
+              </div>
+              <div class="cert-tier-badge gold">Expert</div>
+            </div>
+            <div class="cert-body">
+              <h3 class="cert-name">Data Visualization Pro</h3>
+              <p class="cert-issuer">SkillUp Platform</p>
+            </div>
+            <div class="cert-bar gold"></div>
+          </div>
+          <div class="cert-reveal">
+            <div class="cert-reveal-inner">
+              <span class="cert-reveal-icon">🥇</span>
+              <h4 class="cert-reveal-title">Data Visualization Professional</h4>
+              <p class="cert-reveal-desc">Advanced data storytelling, interactive dashboard design using Plotly, Tableau
+                &amp; Power BI.</p>
+              <span class="cert-reveal-badge">Data Viz Pro</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-tier="silver">
+          <div class="cert-shimmer"></div>
+          <div class="cert-inner">
+            <div class="cert-top">
+              <div class="cert-medal-wrap"><span class="cert-medal">🥈</span>
+                <div class="cert-medal-glow silver"></div>
+              </div>
+              <div class="cert-tier-badge silver">Advanced</div>
+            </div>
+            <div class="cert-body">
+              <h3 class="cert-name">Python Advanced</h3>
+              <p class="cert-issuer">Python Certification</p>
+            </div>
+            <div class="cert-bar silver"></div>
+          </div>
+          <div class="cert-reveal">
+            <div class="cert-reveal-inner">
+              <span class="cert-reveal-icon">🥈</span>
+              <h4 class="cert-reveal-title">Advanced Python Programming</h4>
+              <p class="cert-reveal-desc">OOP, data structures, file I/O, functional programming, and scripting for data
+                science pipelines.</p>
+              <span class="cert-reveal-badge">Python Advanced</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-tier="silver">
+          <div class="cert-shimmer"></div>
+          <div class="cert-inner">
+            <div class="cert-top">
+              <div class="cert-medal-wrap"><span class="cert-medal">🥈</span>
+                <div class="cert-medal-glow silver"></div>
+              </div>
+              <div class="cert-tier-badge silver">Advanced</div>
+            </div>
+            <div class="cert-body">
+              <h3 class="cert-name">Frontend with React</h3>
+              <p class="cert-issuer">React Development</p>
+            </div>
+            <div class="cert-bar silver"></div>
+          </div>
+          <div class="cert-reveal">
+            <div class="cert-reveal-inner">
+              <span class="cert-reveal-icon">🥈</span>
+              <h4 class="cert-reveal-title">Frontend Development — React</h4>
+              <p class="cert-reveal-desc">Component-based UI development using React 18, hooks, Context API, and
+                responsive design patterns.</p>
+              <span class="cert-reveal-badge">React Dev</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-tier="bronze">
+          <div class="cert-shimmer"></div>
+          <div class="cert-inner">
+            <div class="cert-top">
+              <div class="cert-medal-wrap"><span class="cert-medal">🥉</span>
+                <div class="cert-medal-glow bronze"></div>
+              </div>
+              <div class="cert-tier-badge bronze">Certified</div>
+            </div>
+            <div class="cert-body">
+              <h3 class="cert-name">JavaScript Fundamentals</h3>
+              <p class="cert-issuer">JS Certification</p>
+            </div>
+            <div class="cert-bar bronze"></div>
+          </div>
+          <div class="cert-reveal">
+            <div class="cert-reveal-inner">
+              <span class="cert-reveal-icon">🥉</span>
+              <h4 class="cert-reveal-title">JavaScript Fundamentals</h4>
+              <p class="cert-reveal-desc">DOM manipulation, ES6+ features, async/await, event handling, and building
+                interactive web experiences.</p>
+              <span class="cert-reveal-badge bronze">JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-tier="bronze">
+          <div class="cert-shimmer"></div>
+          <div class="cert-inner">
+            <div class="cert-top">
+              <div class="cert-medal-wrap"><span class="cert-medal">🥉</span>
+                <div class="cert-medal-glow bronze"></div>
+              </div>
+              <div class="cert-tier-badge bronze">Certified</div>
+            </div>
+            <div class="cert-body">
+              <h3 class="cert-name">Data Viz Basics</h3>
+              <p class="cert-issuer">Coursera</p>
+            </div>
+            <div class="cert-bar bronze"></div>
+          </div>
+          <div class="cert-reveal">
+            <div class="cert-reveal-inner">
+              <span class="cert-reveal-icon">🥉</span>
+              <h4 class="cert-reveal-title">Data Visualization Basics</h4>
+              <p class="cert-reveal-desc">Foundations of charting, data plotting, and communicating meaningful insights
+                through effective visual representation.</p>
+              <span class="cert-reveal-badge bronze">Coursera</span>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="c-info" id="projInfo">01 / 04</div>
-      <button class="c-btn" id="projNext">&#8594;</button>
-    </div>
-  </div>
-</section>
+    </section>
 
-<div class="s-divider"></div>
+    <div class="s-divider"></div>
 
-<!-- ═══════════ EDUCATION ═══════════ -->
-<section id="education">
-  <div class="section-tag">My Journey</div>
-  <h2 class="section-title reveal">
-    Education &amp; <em style="font-family:var(--font-serif);font-style:italic;color:var(--violet-bright)">Achievements</em>
-  </h2>
-  <div class="edu-timeline reveal">
+    <!-- ═══════════ PROJECTS ═══════════ -->
+    <section id="projects">
+      <div class="section-tag">My Work</div>
+      <h2 class="section-title reveal">
+        Featured <em style="font-family:var(--font-serif);font-style:italic;color:var(--violet-bright)">Projects</em>
+      </h2>
 
-    <div class="edu-item">
-      <div class="edu-card">
-        <div class="edu-year">2023 — Present</div>
-        <div class="edu-degree">B.Tech — Computer Science &amp; Engineering</div>
-        <div class="edu-school">Presidency University, Bengaluru · Specialization: Data Science</div>
-        <div class="edu-gpa">⭐ CGPA: 8.89 / 10.0</div>
-        <div class="edu-desc">Currently in 3rd year. Deepening expertise in Machine Learning, Data Analysis, and AI systems. Building real-world projects in anomaly detection, predictive modelling, and full-stack data applications.</div>
+      <div class="carousel-container reveal">
+        <div class="carousel-track" id="projTrack">
+
+          <!-- SLIDE 1 -->
+          <div class="project-card">
+            <div class="project-visual" style="background:linear-gradient(135deg,#06060e 0%,#0a0a1e 80%)">
+              <div class="project-visual-inner">
+                <div class="project-label" style="color:var(--violet-bright)">PORTFOLIO</div>
+                <img src="images/portfolio.png" alt="Portfolio Screenshot" class="project-img" />
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-num">01 / 04</div>
+              <div class="project-title">Personal Portfolio Website</div>
+              <p class="project-desc">Designed and developed a fully responsive portfolio to showcase projects, skills,
+                education &amp; experience — with modern UI/UX, interactive animations, dark/light mode, and a custom
+                cursor system.</p>
+              <div class="project-metric">
+                <span class="project-metric-dot"></span>
+                Responsive · Mobile-first · Live Deployed
+              </div>
+              <div class="project-tech">
+                <span class="badge badge-cyan">HTML</span>
+                <span class="badge badge-rose">CSS</span>
+                <span class="badge badge-amber">JavaScript</span>
+                <span class="badge badge-violet">React</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="p-link p-link-outline">GitHub →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 2 -->
+          <div class="project-card">
+            <div class="project-visual" style="background:linear-gradient(135deg,#0a0614 0%,#14091e 100%)">
+              <div class="project-visual-inner">
+                <div class="project-label" style="color:var(--rose)">ML · HEALTHCARE</div>
+                <img src="images/Diabetes-model.png" alt="Diabetes Prediction" class="project-img" />
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-num">02 / 04</div>
+              <div class="project-title">Diabetes Prediction Model</div>
+              <p class="project-desc">Built a machine learning model to predict diabetes risk using the Pima Indians
+                dataset (768 records). Applied preprocessing, feature selection, and compared Logistic Regression,
+                Random Forest &amp; SVM.</p>
+              <div class="project-metric">
+                <span class="project-metric-dot"></span>
+                87% Classification Accuracy · Live Streamlit Deploy
+              </div>
+              <div class="project-tech">
+                <span class="badge badge-cyan">Python</span>
+                <span class="badge badge-cyan">Pandas</span>
+                <span class="badge badge-rose">scikit-learn</span>
+                <span class="badge badge-amber">Flask</span>
+                <span class="badge badge-green">Streamlit</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="p-link p-link-outline">GitHub →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 3 -->
+          <div class="project-card">
+            <div class="project-visual" style="background:linear-gradient(135deg,#06060e 0%,#0a0a18 100%)">
+              <div class="project-visual-inner">
+                <div class="project-label" style="color:var(--cyan)">SECURITY · ML</div>
+                <img src="images/neuro.png" alt="NeuroHaven" class="project-img" />
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-num">03 / 04</div>
+              <div class="project-title">NeuroHaven</div>
+              <p class="project-desc">Insider threat detection system using behavioral data analysis and unsupervised
+                anomaly detection (Isolation Forest, DBSCAN) to identify suspicious activities. Real-time React
+                dashboard for threat visualization.</p>
+              <div class="project-metric">
+                <span class="project-metric-dot"></span>
+                Anomaly Detection · Top 5% Risk Surfacing
+              </div>
+              <div class="project-tech">
+                <span class="badge badge-cyan">Python</span>
+                <span class="badge badge-rose">ML</span>
+                <span class="badge badge-amber">Data Analysis</span>
+                <span class="badge badge-violet">React</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="p-link p-link-outline">GitHub →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 4 — CraftFolio -->
+          <div class="project-card">
+            <div class="project-visual" style="background:linear-gradient(135deg,#080614 0%,#100a1e 100%)">
+              <div class="project-visual-inner">
+                <div class="project-label" style="color:var(--violet-bright)">CRAFTFOLIO</div>
+                <img src="images/craftfolio.png" alt="CraftFolio" class="project-img" />
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-num">04 / 04</div>
+              <div class="project-title">CraftFolio</div>
+              <p class="project-desc">A dynamic portfolio builder platform that empowers users to create and customize
+                stunning portfolios without writing a single line of code. Features modern templates, real-time
+                customization, and one-click deployment — making personal branding effortless.</p>
+              <div class="project-metric">
+                <span class="project-metric-dot"></span>
+                Multi-template · Real-time Preview · One-click Deploy
+              </div>
+              <div class="project-tech">
+                <span class="badge badge-cyan">FastAPI</span>
+                <span class="badge badge-rose">HTML5</span>
+                <span class="badge badge-amber">CSS3</span>
+                <span class="badge badge-green">JavaScript</span>
+                <span class="badge badge-violet">React</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="p-link p-link-outline">GitHub →</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="carousel-nav">
+          <button class="c-btn" id="projPrev">&#8592;</button>
+          <div class="c-dots" id="projDots">
+            <div class="c-dot on" data-i="0"></div>
+            <div class="c-dot" data-i="1"></div>
+            <div class="c-dot" data-i="2"></div>
+            <div class="c-dot" data-i="3"></div>
+          </div>
+          <div class="c-info" id="projInfo">01 / 04</div>
+          <button class="c-btn" id="projNext">&#8594;</button>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="edu-item">
-      <div class="edu-card">
-        <div class="edu-year">2021 — 2023</div>
-        <div class="edu-degree">PUC — Karnataka State Board</div>
-        <div class="edu-school">Surabhi PU College, Hospet · Specialization: PCMB</div>
-        <div class="edu-gpa" style="background:rgba(244,63,126,0.08);color:var(--rose);border-color:rgba(244,63,126,0.25)">📊 Score: 87.5%</div>
-        <div class="edu-desc">Graduated with distinction. Built a strong foundation in Physics, Chemistry, Mathematics, and Biology — the analytical core that shaped my journey into technology and data science.</div>
+    <div class="s-divider"></div>
+
+    <!-- ═══════════ EDUCATION ═══════════ -->
+    <section id="education">
+      <div class="section-tag">My Journey</div>
+      <h2 class="section-title reveal">
+        Education &amp; <em
+          style="font-family:var(--font-serif);font-style:italic;color:var(--violet-bright)">Achievements</em>
+      </h2>
+      <div class="edu-timeline reveal">
+
+        <div class="edu-item">
+          <div class="edu-card">
+            <div class="edu-year">2023 — Present</div>
+            <div class="edu-degree">B.Tech — Computer Science &amp; Engineering</div>
+            <div class="edu-school">Presidency University, Bengaluru · Specialization: Data Science</div>
+            <div class="edu-gpa">⭐ CGPA: 8.89 / 10.0</div>
+            <div class="edu-desc">Currently in 3rd year. Deepening expertise in Machine Learning, Data Analysis, and AI
+              systems. Building real-world projects in anomaly detection, predictive modelling, and full-stack data
+              applications.</div>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-card">
+            <div class="edu-year">2021 — 2023</div>
+            <div class="edu-degree">PUC — Karnataka State Board</div>
+            <div class="edu-school">Surabhi PU College, Hospet · Specialization: PCMB</div>
+            <div class="edu-gpa"
+              style="background:rgba(244,63,126,0.08);color:var(--rose);border-color:rgba(244,63,126,0.25)">📊 Score:
+              87.5%</div>
+            <div class="edu-desc">Graduated with distinction. Built a strong foundation in Physics, Chemistry,
+              Mathematics, and Biology — the analytical core that shaped my journey into technology and data science.
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-card">
+            <div class="edu-year">2016 — 2021</div>
+            <div class="edu-degree">High School</div>
+            <div class="edu-school">Surabhi Vidyaniketan, Hospet · CBSE Board</div>
+            <div class="edu-gpa"
+              style="background:rgba(255,184,48,0.08);color:var(--amber);border-color:rgba(255,184,48,0.25)">📚 First
+              Class</div>
+            <div class="edu-desc">Discovered a deep curiosity for logic, patterns, and problem-solving. Graduated
+              first-class, laying the foundation for a passion in mathematics that eventually led me toward programming
+              and data science.</div>
+          </div>
+        </div>
+
       </div>
-    </div>
+    </section>
 
-    <div class="edu-item">
-      <div class="edu-card">
-        <div class="edu-year">2016 — 2021</div>
-        <div class="edu-degree">High School</div>
-        <div class="edu-school">Surabhi Vidyaniketan, Hospet · CBSE Board</div>
-        <div class="edu-gpa" style="background:rgba(255,184,48,0.08);color:var(--amber);border-color:rgba(255,184,48,0.25)">📚 First Class</div>
-        <div class="edu-desc">Discovered a deep curiosity for logic, patterns, and problem-solving. Graduated first-class, laying the foundation for a passion in mathematics that eventually led me toward programming and data science.</div>
+    <div class="s-divider"></div>
+
+    <!-- ═══════════ CONTACT ═══════════ -->
+    <section id="contact">
+      <div class="section-tag">Let's Connect</div>
+      <h2 class="section-title reveal">
+        Get In <em style="font-family:var(--font-serif);font-style:italic;color:var(--violet-bright)">Touch</em>
+      </h2>
+      <div class="contact-grid reveal">
+        <div class="contact-info">
+          <div class="availability-badge">
+            <span class="availability-dot"></span>
+            Currently open to internship offers
+          </div>
+          <p class="contact-intro">I'm actively looking for internships, research collaborations, and interesting data
+            science projects. If you have something in mind — let's connect and explore what we can build together!</p>
+          <div class="contact-links">
+            <a href="mailto:madihaali552@gmail.com" class="c-link">
+              <span class="c-link-icon">✉</span> madihaali552@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/madiha-3b02b230a" target="_blank" class="c-link">
+              <span class="c-link-icon">in</span> linkedin.com/in/madiha-3b02b230a
+            </a>
+            <a href="https://github.com/Madiha-14" target="_blank" class="c-link">
+              <span class="c-link-icon">⌥</span> github.com/Madiha-14
+            </a>
+            <a href="https://www.instagram.com/madee_ha.ai" target="_blank" class="c-link">
+              <span class="c-link-icon">📸</span> instagram.com/madee_ha.ai
+            </a>
+            <a href="#" class="c-link" onclick="downloadResume(event)">
+              <span class="c-link-icon">⬇</span> Download Resume (PDF)
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" onsubmit="handleForm(event)">
+          <div class="f-group">
+            <label class="f-label">Your Name</label>
+            <input class="f-input" placeholder="Your full name" type="text" required />
+          </div>
+          <div class="f-group">
+            <label class="f-label">Email Address</label>
+            <input class="f-input" placeholder="you@company.com" type="email" required />
+          </div>
+          <div class="f-group">
+            <label class="f-label">Message</label>
+            <textarea class="f-textarea"
+              placeholder="Hi Madiha, I'd love to discuss an internship opportunity..."></textarea>
+          </div>
+          <button type="submit" class="f-submit" id="submitBtn">Send Message →</button>
+        </form>
       </div>
-    </div>
+    </section>
 
-  </div>
-</section>
-
-<div class="s-divider"></div>
-
-<!-- ═══════════ CONTACT ═══════════ -->
-<section id="contact">
-  <div class="section-tag">Let's Connect</div>
-  <h2 class="section-title reveal">
-    Get In <em style="font-family:var(--font-serif);font-style:italic;color:var(--violet-bright)">Touch</em>
-  </h2>
-  <div class="contact-grid reveal">
-    <div class="contact-info">
-      <div class="availability-badge">
-        <span class="availability-dot"></span>
-        Currently open to internship offers
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer>
+      <div class="foot-brand"><span>Madiha</span> · Built with ❤ &amp; Python-fuelled caffeine</div>
+      <div class="foot-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
       </div>
-      <p class="contact-intro">I'm actively looking for internships, research collaborations, and interesting data science projects. If you have something in mind — let's connect and explore what we can build together!</p>
-      <div class="contact-links">
-        <a href="mailto:madihaali552@gmail.com" class="c-link">
-          <span class="c-link-icon">✉</span> madihaali552@gmail.com
-        </a>
-        <a href="https://www.linkedin.com/in/madiha-3b02b230a" target="_blank" class="c-link">
-          <span class="c-link-icon">in</span> linkedin.com/in/madiha-3b02b230a
-        </a>
-        <a href="https://github.com/Madiha-14" target="_blank" class="c-link">
-          <span class="c-link-icon">⌥</span> github.com/Madiha-14
-        </a>
-        <a href="https://www.instagram.com/madee_ha.ai" target="_blank" class="c-link">
-          <span class="c-link-icon">📸</span> instagram.com/madee_ha.ai
-        </a>
-        <a href="#" class="c-link" onclick="downloadResume(event)">
-          <span class="c-link-icon">⬇</span> Download Resume (PDF)
-        </a>
-      </div>
-    </div>
+      <div class="foot-note">Data Science · @2027</div>
+    </footer>
 
-    <form class="contact-form" onsubmit="handleForm(event)">
-      <div class="f-group">
-        <label class="f-label">Your Name</label>
-        <input class="f-input" placeholder="Your full name" type="text" required/>
-      </div>
-      <div class="f-group">
-        <label class="f-label">Email Address</label>
-        <input class="f-input" placeholder="you@company.com" type="email" required/>
-      </div>
-      <div class="f-group">
-        <label class="f-label">Message</label>
-        <textarea class="f-textarea" placeholder="Hi Madiha, I'd love to discuss an internship opportunity..."></textarea>
-      </div>
-      <button type="submit" class="f-submit" id="submitBtn">Send Message →</button>
-    </form>
-  </div>
-</section>
-
-<!-- ═══════════ FOOTER ═══════════ -->
-<footer>
-  <div class="foot-brand"><span>Madiha</span> · Built with ❤ &amp; Python-fuelled caffeine</div>
-  <div class="foot-links">
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div class="foot-note">Data Science · @2027</div>
-</footer>
-
-</div><!-- .page -->
+  </div><!-- .page -->
 </body>
+
 </html>
-
-

@@ -6,17 +6,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── CURSOR
   const cur = document.getElementById('cursor');
   const ring = document.getElementById('cursor-ring');
-  let mx=0, my=0, rx=0, ry=0;
+  let mx = 0, my = 0, rx = 0, ry = 0;
 
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
-    if (cur) { cur.style.left = mx+'px'; cur.style.top = my+'px'; }
+    if (cur) { cur.style.left = mx + 'px'; cur.style.top = my + 'px'; }
   });
 
   (function animRing() {
     if (ring) {
-      rx += (mx-rx)*0.12; ry += (my-ry)*0.12;
-      ring.style.left = rx+'px'; ring.style.top = ry+'px';
+      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
     }
     requestAnimationFrame(animRing);
   })();
@@ -24,16 +24,16 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('a,button,.c-btn,.skill-card,.cert-card,.edu-card').forEach(el => {
     el.addEventListener('mouseenter', () => {
       if (cur && ring) {
-        cur.style.width='14px'; cur.style.height='14px';
-        cur.style.background='var(--rose)';
-        ring.style.width='52px'; ring.style.height='52px';
+        cur.style.width = '14px'; cur.style.height = '14px';
+        cur.style.background = 'var(--rose)';
+        ring.style.width = '52px'; ring.style.height = '52px';
       }
     });
     el.addEventListener('mouseleave', () => {
       if (cur && ring) {
-        cur.style.width='8px'; cur.style.height='8px';
-        cur.style.background='var(--violet-bright)';
-        ring.style.width='32px'; ring.style.height='32px';
+        cur.style.width = '8px'; cur.style.height = '8px';
+        cur.style.background = 'var(--violet-bright)';
+        ring.style.width = '32px'; ring.style.height = '32px';
       }
     });
   });
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener('scroll', () => {
     const st = window.scrollY;
     const dh = document.documentElement.scrollHeight - window.innerHeight;
-    if (pb) pb.style.width = (st/dh*100)+'%';
+    if (pb) pb.style.width = (st / dh * 100) + '%';
     document.getElementById('back-top')?.classList.toggle('show', st > 500);
     document.getElementById('main-nav')?.classList.toggle('scrolled', st > 60);
   });
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
   canvas.style.zIndex = '0';
   canvas.style.pointerEvents = 'none';
   canvas.style.opacity = '0.4';
-  
+
   const bgCanvasContainer = document.querySelector('.bg-canvas');
   if (bgCanvasContainer) {
     bgCanvasContainer.appendChild(canvas);
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
       this.y += this.vy;
       if (this.x < 0 || this.x > width) this.vx *= -1;
       if (this.y < 0 || this.y > height) this.vy *= -1;
-      
+
       // Slight mouse attraction
       let dx = mx - this.x;
       let dy = my - this.y;
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function initParticles() {
     particlesArray = [];
-    let numParticles = Math.min((width * height) / 15000, 100); 
+    let numParticles = Math.min((width * height) / 15000, 100);
     for (let i = 0; i < numParticles; i++) {
       particlesArray.push(new NodeParticle());
     }
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let distance = Math.sqrt(dx * dx + dy * dy);
         if (distance < 120) {
           ctx.beginPath();
-          ctx.strokeStyle = isDark ? `rgba(0, 229, 204, ${1 - distance/120})` : `rgba(8, 145, 178, ${1 - distance/120})`;
+          ctx.strokeStyle = isDark ? `rgba(0, 229, 204, ${1 - distance / 120})` : `rgba(8, 145, 178, ${1 - distance / 120})`;
           ctx.lineWidth = 0.8;
           ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
           ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
@@ -158,30 +158,30 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── MATH SYMBOLS PARTICLES (HERO SPECIFIC)
   const pContainer = document.getElementById('particles');
   if (pContainer) {
-    const sym = ['0','1','∑','μ','σ','∂','∇','∞','α','β','λ','ρ','Δ','∫','π','θ','⟨','⟩','∈','∅', 'x̄', 'ŷ', 'R²'];
-    for (let i=0; i<25; i++) {
+    const sym = ['0', '1', '∑', 'μ', 'σ', '∂', '∇', '∞', 'α', 'β', 'λ', 'ρ', 'Δ', '∫', 'π', 'θ', '⟨', '⟩', '∈', '∅', 'x̄', 'ŷ', 'R²'];
+    for (let i = 0; i < 25; i++) {
       const p = document.createElement('div');
       p.className = 'particle';
-      p.textContent = sym[Math.floor(Math.random()*sym.length)];
-      p.style.cssText = `left:${Math.random()*100}%;font-size:${10+Math.random()*12}px;animation-duration:${8+Math.random()*18}s;animation-delay:${-Math.random()*22}s`;
+      p.textContent = sym[Math.floor(Math.random() * sym.length)];
+      p.style.cssText = `left:${Math.random() * 100}%;font-size:${10 + Math.random() * 12}px;animation-duration:${8 + Math.random() * 18}s;animation-delay:${-Math.random() * 22}s`;
       pContainer.appendChild(p);
     }
   }
 
   // ── TYPED ROLE
-  const roles = ['Data Science Engineer','ML Enthusiast','Python Developer','Data Storyteller','Future Data Scientist','Anomaly Detector','AI Explorer'];
-  let ri=0, ci=0, deleting=false;
+  const roles = ['Data Science Engineer', 'ML Enthusiast', 'Python Developer', 'Data Storyteller', 'Future Data Scientist', 'Anomaly Detector', 'AI Explorer'];
+  let ri = 0, ci = 0, deleting = false;
   const typed = document.getElementById('typed-role');
   function type() {
     if (!typed) return;
     const r = roles[ri];
     const cursor = '<span class="typed-cursor"></span>';
     if (!deleting) {
-      ci++; typed.innerHTML = r.slice(0,ci)+cursor;
-      if (ci === r.length) { deleting=true; setTimeout(type,2200); return; }
+      ci++; typed.innerHTML = r.slice(0, ci) + cursor;
+      if (ci === r.length) { deleting = true; setTimeout(type, 2200); return; }
     } else {
-      ci--; typed.innerHTML = r.slice(0,ci)+cursor;
-      if (ci === 0) { deleting=false; ri=(ri+1)%roles.length; setTimeout(type,400); return; }
+      ci--; typed.innerHTML = r.slice(0, ci) + cursor;
+      if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; setTimeout(type, 400); return; }
     }
     setTimeout(type, deleting ? 55 : 105);
   }
@@ -189,12 +189,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ── COUNTERS
   function animCounter(el, target) {
-    let cur=0;
-    const isGPA = (target===889);
-    const step = Math.ceil(target/50);
+    let cur = 0;
+    const isGPA = (target === 889);
+    const step = Math.ceil(target / 50);
     const t = setInterval(() => {
-      cur = Math.min(cur+step, target);
-      el.textContent = isGPA ? (cur/100).toFixed(2) : cur+(target>5?'+':'');
+      cur = Math.min(cur + step, target);
+      el.textContent = isGPA ? (cur / 100).toFixed(2) : cur + (target > 5 ? '+' : '');
       if (cur >= target) clearInterval(t);
     }, 35);
   }
@@ -244,58 +244,58 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('.skill-card').forEach(c => barObs.observe(c));
 
   // ── CAROUSEL (4 slides)
-  let pc=0; const ptotal=4;
+  let pc = 0; const ptotal = 4;
   const pt = document.getElementById('projTrack');
   const pdots = document.querySelectorAll('#projDots .c-dot');
   const pinfo = document.getElementById('projInfo');
 
   function projGoTo(n) {
     if (!pt) return;
-    pc = (n+ptotal)%ptotal;
-    pt.style.transform = `translateX(-${pc*100}%)`;
-    pdots.forEach((d,i) => d.classList.toggle('on', i===pc));
-    if (pinfo) pinfo.textContent = `0${pc+1} / 0${ptotal}`;
+    pc = (n + ptotal) % ptotal;
+    pt.style.transform = `translateX(-${pc * 100}%)`;
+    pdots.forEach((d, i) => d.classList.toggle('on', i === pc));
+    if (pinfo) pinfo.textContent = `0${pc + 1} / 0${ptotal}`;
   }
 
-  document.getElementById('projNext')?.addEventListener('click', () => projGoTo(pc+1));
-  document.getElementById('projPrev')?.addEventListener('click', () => projGoTo(pc-1));
+  document.getElementById('projNext')?.addEventListener('click', () => projGoTo(pc + 1));
+  document.getElementById('projPrev')?.addEventListener('click', () => projGoTo(pc - 1));
   pdots.forEach(d => d.addEventListener('click', () => projGoTo(parseInt(d.dataset.i))));
-  setInterval(() => projGoTo(pc+1), 5500);
+  setInterval(() => projGoTo(pc + 1), 5500);
 
   // Swipe
-  let ts=null;
-  pt?.addEventListener('touchstart', e => ts=e.touches[0].clientX);
+  let ts = null;
+  pt?.addEventListener('touchstart', e => ts = e.touches[0].clientX);
   pt?.addEventListener('touchend', e => {
-    if (ts===null) return;
+    if (ts === null) return;
     const dx = ts - e.changedTouches[0].clientX;
-    if (Math.abs(dx)>40) projGoTo(dx>0?pc+1:pc-1);
-    ts=null;
+    if (Math.abs(dx) > 40) projGoTo(dx > 0 ? pc + 1 : pc - 1);
+    ts = null;
   });
 
   // ── HAMBURGER
-  document.getElementById('hamburger')?.addEventListener('click', function() {
+  document.getElementById('hamburger')?.addEventListener('click', function () {
     this.classList.toggle('open');
     document.getElementById('navLinks')?.classList.toggle('open');
   });
 
   // ── FORM
-  window.handleForm = function(e) {
+  window.handleForm = function (e) {
     e.preventDefault();
     const btn = document.getElementById('submitBtn');
-    btn.textContent='Sending...'; btn.disabled=true;
+    btn.textContent = 'Sending...'; btn.disabled = true;
     setTimeout(() => {
-      btn.textContent='Message Sent ✓';
-      btn.style.background='linear-gradient(135deg,var(--green),var(--cyan))';
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = 'linear-gradient(135deg,var(--green),var(--cyan))';
       setTimeout(() => {
-        btn.textContent='Send Message →';
-        btn.disabled=false; btn.style.background='';
+        btn.textContent = 'Send Message →';
+        btn.disabled = false; btn.style.background = '';
         e.target.reset();
       }, 3000);
     }, 1200);
   };
 
   // ── DOWNLOAD RESUME
-  window.downloadResume = function(e) {
+  window.downloadResume = function (e) {
     e.preventDefault();
     // Creates a placeholder resume PDF download
     // Replace 'resume/Madiha_Resume.pdf' with actual file path
@@ -328,7 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (window.scrollY >= s.offsetTop - 120) current = s.id;
     });
     navAs.forEach(a => {
-      a.style.color = a.getAttribute('href')==='#'+current ? 'var(--violet-bright)' : '';
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--violet-bright)' : '';
     });
   });
 
