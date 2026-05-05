@@ -92,42 +92,81 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener('resize', resizeCanvas);
   resizeCanvas();
 
-  class NodeParticle {
+  class StarParticle {
     constructor() {
+      this.reset();
+    }
+    reset() {
       this.x = Math.random() * width;
       this.y = Math.random() * height;
-      this.vx = (Math.random() - 0.5) * 0.8;
-      this.vy = (Math.random() - 0.5) * 0.8;
-      this.radius = Math.random() * 2 + 1;
+      this.size = Math.random() * 2 + 0.5;
+      this.vy = (Math.random() - 0.5) * 0.4;
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.life = Math.random() * 0.6 + 0.1; 
+      
+      this.isShooting = Math.random() > 0.985;
+      if (this.isShooting) {
+        this.size = Math.random() * 1.5 + 1;
+        this.vx = (Math.random() * 5 + 4) * (Math.random() > 0.5 ? 1 : -1);
+        this.vy = (Math.random() * 5 + 4) * (Math.random() > 0.5 ? 1 : -1);
+        this.life = 1;
+        this.trail = [];
+      }
     }
     update() {
+      if (this.isShooting) {
+        this.trail.push({x: this.x, y: this.y});
+        if (this.trail.length > 10) this.trail.shift();
+      }
+      
       this.x += this.vx;
       this.y += this.vy;
-      if (this.x < 0 || this.x > width) this.vx *= -1;
-      if (this.y < 0 || this.y > height) this.vy *= -1;
-
-      // Slight mouse attraction
-      let dx = mx - this.x;
-      let dy = my - this.y;
-      let dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 150) {
-        this.x += dx * 0.005;
-        this.y += dy * 0.005;
+      
+      if (this.isShooting) {
+        this.life -= 0.015;
+        if (this.life <= 0 || this.x < -50 || this.x > width+50 || this.y < -50 || this.y > height+50) {
+          this.reset();
+        }
+      } else {
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+        
+        let dx = mx - this.x;
+        let dy = my - this.y;
+        let dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 200) {
+           this.x -= dx * 0.003;
+           this.y -= dy * 0.003;
+        }
       }
     }
     draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = isDark ? 'rgba(157, 92, 255, 0.8)' : 'rgba(124, 58, 237, 0.6)';
-      ctx.fill();
+      if (this.isShooting && this.trail.length > 0) {
+        ctx.beginPath();
+        ctx.moveTo(this.trail[0].x, this.trail[0].y);
+        for (let i = 1; i < this.trail.length; i++) {
+           ctx.lineTo(this.trail[i].x, this.trail[i].y);
+        }
+        ctx.strokeStyle = `rgba(0, 229, 204, ${this.life})`;
+        ctx.lineWidth = this.size;
+        ctx.stroke();
+      } else {
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = isDark ? '#00e5cc' : '#6d28d9';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = isDark ? `rgba(255, 255, 255, ${this.life})` : `rgba(124, 58, 237, ${this.life})`;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
     }
   }
 
   function initParticles() {
     particlesArray = [];
-    let numParticles = Math.min((width * height) / 15000, 100);
+    let numParticles = Math.min((width * height) / 9000, 160);
     for (let i = 0; i < numParticles; i++) {
-      particlesArray.push(new NodeParticle());
+      particlesArray.push(new StarParticle());
     }
   }
   initParticles();
@@ -137,19 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < particlesArray.length; i++) {
       particlesArray[i].update();
       particlesArray[i].draw();
-      for (let j = i; j < particlesArray.length; j++) {
-        let dx = particlesArray[i].x - particlesArray[j].x;
-        let dy = particlesArray[i].y - particlesArray[j].y;
-        let distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 120) {
-          ctx.beginPath();
-          ctx.strokeStyle = isDark ? `rgba(0, 229, 204, ${1 - distance / 120})` : `rgba(8, 145, 178, ${1 - distance / 120})`;
-          ctx.lineWidth = 0.8;
-          ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
-          ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
-          ctx.stroke();
-        }
-      }
     }
     requestAnimationFrame(animateParticles);
   }
